@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <!-- Use the full version of jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Testing PHP Script</h1>
+
+    <script>
+        // Ensure jQuery is loaded before making the AJAX request
+        if (typeof jQuery == 'undefined') {
+            // jQuery is not loaded, load it before continuing
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+            document.head.appendChild(script);
+        }
+
+        // Function to populate the table with facture data
+        function populateTable(factureData) {
+            const tableBody = document.getElementById('factureTableBody');
+
+            // Check if the tableBody element exists
+            if (!tableBody) {
+                console.error('Element with ID "factureTableBody" not found.');
+                return;
+            }
+
+            tableBody.innerHTML = '';
+
+            factureData.forEach((facture) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${facture.id_facture}</td>
+                    <td>${facture.mois}</td>
+                    <td>${facture.consommation}</td>
+                    <!-- Add other columns as needed -->
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Use jQuery for simplicity
+        $.ajax({
+            url: 'get_facture_data.php',
+            method: 'GET',
+            success: function(response) {
+                console.log('Facture Data:', response);
+
+                // Call the populateTable function with the fetched facture data
+                populateTable(response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching facture data:', error);
+            }
+        });
+    </script>
+
+    <!-- Add this somewhere in your HTML body -->
+    <tbody id="factureTableBody"></tbody>
+</body>
+</html>

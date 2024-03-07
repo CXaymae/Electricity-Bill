@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 60px; /* Ajoute un espacement au-dessus de la barre de navigation fixe */
+        }
+
+        .navbar-custom {
+            background-color: #007bff; /* Couleur bleue pour la barre de navigation */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .option-section {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .option-button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .nav-link-button {
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .logout-button {
+            background-color: #dc3545;
+            color: #fff;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom">
+        <a class="navbar-brand" href="#">Facturaty</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="data.php" class="nav-link nav-link-button">Saisir ma consommation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reclamation.html" class="nav-link nav-link-button">Réclamer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="facture.php" class="nav-link nav-link-button">Mes factures</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-danger logout-button" onclick="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu de la page -->
+    <div class="container mt-5">
+        <div class="header">
+            <h1>Bienvenue a votre Espace Personnel</h1>
+            <h4>Votre confort, notre Metier</h4>
+        </div>
+        <!-- Remove the option-section divs -->
+    </div>
+
+    <!-- Bootstrap JS et dépendances -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Script de déconnexion -->
+    <script>
+        function logout() {
+            // Mettez ici le code de déconnexion, par exemple, redirection vers la page de déconnexion.
+            alert("Vous êtes déconnecté !");
+            window.location.href = "index.html"; // Assurez-vous d'ajuster le chemin selon votre structure de fichiers.
+        }
+    </script>
+
+</body>
+</html>
